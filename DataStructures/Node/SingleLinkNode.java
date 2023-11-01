@@ -1,8 +1,8 @@
 package DataStructures.Node;
 
 public class SingleLinkNode <T>{
-    T data;
-    SingleLinkNode<T> next;
+    private T data;
+    private SingleLinkNode<T> next;
 
     public SingleLinkNode(){
     }

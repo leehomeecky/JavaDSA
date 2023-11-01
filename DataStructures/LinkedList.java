@@ -8,14 +8,11 @@ public class LinkedList <T>{
     private SingleLinkNode<T> getNode(int index){
         SingleLinkNode<T> temp = head;
         
-        if (head == null)
-            return null;
+        if (head == null) return null;
         for (int i = 0; i < index; i++) {
-            if (temp.getNext() == null)
-                break;
+            if (temp.getNext() == null) break;
             temp = temp.getNext();
         }
-
         return temp;
     }
 
@@ -36,8 +33,7 @@ public class LinkedList <T>{
     }
 
     public boolean add(T data, int index){
-        if (index < 0)
-            index = this.size() + index;
+        if (index < 0) index = this.size() + index;
         SingleLinkNode<T> node = new SingleLinkNode<>();
         SingleLinkNode<T> indexNode = this.getNode(index - 1);
         node.setData(data);
@@ -54,20 +50,30 @@ public class LinkedList <T>{
         return true;
     }
 
+    public T remove(){
+        SingleLinkNode<T> temp = head;
+        if (temp == null) return null;
+        head = temp.getNext();
+        return temp.getData();
+    }
+
+    public T remove(int index){
+        SingleLinkNode<T> temp = head;
+        if (temp == null) return null;
+        head = temp.getNext();
+        return temp.getData();
+    }
+
     public T getData(int index){
-        if (index < 0)
-            index = this.size() + index;
-        if (index >= this.size())
-            return null;
+        if (index < 0) index = this.size() + index;
+        if (index >= this.size()) return null;
         SingleLinkNode<T> indexNode = this.getNode(index);
         return indexNode.getData();
     }
 
     public boolean setData(T data, int index){
-        if (index > this.size() || this.size() == 0)
-            return false;
-        if (index < 0)
-            index = this.size() + index;
+        if (index > this.size() || this.size() == 0) return false;
+        if (index < 0) index = this.size() + index;
         this.getNode(index).setData(data);
         return true;
 
@@ -75,8 +81,7 @@ public class LinkedList <T>{
 
     public void printList(){
         SingleLinkNode<T> temp = head;
-        if (temp == null)
-            return;
+        if (temp == null) return;
         while(temp != null){
             System.out.println(temp.getData());
             temp = temp.getNext();
@@ -86,10 +91,9 @@ public class LinkedList <T>{
     public int size(){
         SingleLinkNode<T> temp = head;
         int i = 0;
-
-        for (; temp != null; i++)
-            temp = temp.getNext();
+        for (; temp != null; i++) temp = temp.getNext();
         return i;
     }
 
 }
+

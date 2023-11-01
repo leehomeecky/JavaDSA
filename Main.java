@@ -18,5 +18,8 @@ public class Main {
         list.setData(5, -2);
         list.printList();
         System.out.println("================================");
+        list.remove();
+        list.printList();
+        System.out.println("================================");
     }
 }
